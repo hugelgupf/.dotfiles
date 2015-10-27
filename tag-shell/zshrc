@@ -27,10 +27,10 @@ source $ZSH/oh-my-zsh.sh
 autoload -U compinit && compinit
 autoload -U colors && colors
 
-source /etc/bash_completion.d/g4d
-source /etc/bash_completion.d/p4
-source /etc/bash_completion.d/blaze
-source /etc/bash_completion.d/mosh
+if [[ -e $HOME/.zshrc.local ]]
+then
+  source $HOME/.zshrc.local
+fi
 
 zstyle ':completion:*' menu select=20
 setopt menu_complete
@@ -55,5 +55,12 @@ then
   source /usr/bin/virtualenvwrapper.sh
 fi
 
-source $HOME/.aliases
-source $HOME/.zshrc.aliases
+if [[ -e $HOME/.aliases ]]
+then
+  source $HOME/.aliases
+fi
+
+if [[ -e $HOME/.zshrc.aliases ]]
+then
+  source $HOME/.zshrc.aliases
+fi
