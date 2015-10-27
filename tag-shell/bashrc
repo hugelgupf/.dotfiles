@@ -3,13 +3,4 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
-
-# laptop only
-alias battery="upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep -A1 time"
-
-# pastebin
-alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
