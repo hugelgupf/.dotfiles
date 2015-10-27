@@ -1,0 +1,44 @@
+;;; original file by Scott Chadde, supplied as part of CSE113
+
+;;; Nice options to have On by default
+(mouse-wheel-mode t)			; activate mouse scrolling
+(global-font-lock-mode t)		; syntax highlighting
+(transient-mark-mode t)			; sane select (mark) mode
+(delete-selection-mode t)		; entry deletes marked text
+(show-paren-mode t)			; match parentheses
+(add-hook 'text-mode-hook 'turn-on-auto-fill) ; wrap long lines in text mode
+
+;; set cursor to a black ertical bar rather than a block  
+(setq-default cursor-type 'bar)
+(set-cursor-color "black")
+
+;;add line numbering
+(global-linum-mode 1)
+
+(load "~/.emacs.d/google-c-style.el")
+(require 'google-c-style)
+(add-hook 'c-mode-common-hook 'google-set-c-style)
+(add-hook 'c-mode-common-hook 'google-make-newline-indent)
+
+;;makes the shell more user friendly
+;;allows the use of arrow keys to get previous commands
+(require 'comint)
+(define-key comint-mode-map (kbd "M-") 'comint-next-input)
+(define-key comint-mode-map (kbd "M-") 'comint-previous-input)
+(define-key comint-mode-map [down] 'comint-next-matching-input-from-input)
+(define-key comint-mode-map [up] 'comint-previous-matching-input-from-input)
+
+;;autopair - automagically add a pair of braces, parenthesis, etc
+;(add-to-list 'load-path "~/.emacs.d/") ;; comment if autopair.el is in standard load path_ 
+;   (require 'autopair)
+;   (autopair-global-mode) ;; enable autopair in all buffers_ 
+
+;;; TC
+;;;(add-hook 'latex-mode-hook '(lambda () (auto-fill-mode)))
+;;;(add-hook 'latex-mode-hook 'turn-on-flyspell)
+
+;;; linux kernel style (CSE 113/122), but with 4 spaces
+;;;(setq c-default-style '((c-mode . "linux")))
+;;;(setq c-basic-offset 4)
+
+;;;(setq tab-width 4)

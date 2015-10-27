@@ -1,0 +1,303 @@
+%\documentclass[11pt]{article}
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{chrisheader}
+
+\newif\if@cse\@csetrue
+\DeclareOption{nocse}{
+  \@csefalse
+}
+
+\newif\if@section\@sectionfalse
+\DeclareOption{section}{
+  \@sectiontrue
+}
+
+\newif\if@subsection\@subsectionfalse
+\DeclareOption{subsection}{
+  \@subsectiontrue
+}
+
+\newif\if@beamer\@beamertrue
+\DeclareOption{beamer}{
+  \@beamerfalse
+}
+
+\newif\if@cormen\@cormenfalse
+\DeclareOption{cormen}{
+  \@cormentrue
+}
+
+\ProcessOptions\relax
+
+\renewcommand{\arraystretch}{1.2}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{fix-cm}
+\usepackage{etex}
+\usepackage{wrapfig}
+
+\if@beamer
+\usepackage[margin=1in]{geometry}
+\fi
+
+%%% TABLES
+% span multiple rows in tables
+\usepackage{multirow}
+% for much better looking tables
+\usepackage{booktabs}
+% tables spanning multiple pages
+\usepackage{longtable}
+
+%%% FIGURES AND FLOATS
+% make it possible to include more than one captioned figure/table in a single float
+\usepackage{subcaption}
+\usepackage{graphicx}
+% Enables the Here Dammit figure position.
+\usepackage{float}
+\usepackage{dblfloatfix}
+\usepackage{fixltx2e}
+\usepackage[format=plain,font=small,labelfont=bf]{caption} %caption
+                                %formatting
+
+%%% MISC
+\usepackage[utf8]{inputenc}
+\usepackage{blindtext}
+\usepackage{color}
+\usepackage{cleveref}
+\if@beamer
+\usepackage[hidelinks,bookmarks]{hyperref}
+\fi
+
+% for better arrays (eg matrices) in maths
+\usepackage{array}
+\usepackage{verbatim}
+% nice enumerations
+\if@beamer
+\usepackage{paralist}
+%\usepackage{enumitem}
+\fi
+
+%%% Fancy page style
+\if@beamer
+\usepackage{fancyhdr} % fancy headers
+\pagestyle{fancy}
+\fancyhead{}
+
+\sloppy
+\frenchspacing
+
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\fi
+
+%\usepackage{framed}
+
+
+\if@subsection
+\usepackage{chngcntr}
+\counterwithin{figure}{subsection}
+\counterwithin{table}{subsection}
+\fi
+
+\if@section
+\usepackage{chngcntr}
+\counterwithin{figure}{section}
+\counterwithin{table}{section}
+\fi
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% MATH
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{nicefrac}
+\usepackage{amsmath} % MATH
+
+\usepackage{amsthm, thmtools}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathtools} % matrix alignment
+\usepackage{dsfont}
+\usepackage{IEEEtrantools} % nice equations
+
+\newcommand{\e}[1]{\ensuremath{\times 10^{#1}}}
+
+%% for framed theorems (i.e. \begin{framed} thm... \end{framed})
+%% less padding
+\newtheoremstyle{framedplain}%                % Name
+  {1pt}%                                     % Space above
+  {1pt}%                                     % Space below
+  {\itshape}%                             % Body font
+  {}%                                     % Indent amount
+  {\bfseries}%                            % Theorem head font
+  {.}%                                    % Punctuation after theorem head
+  { }%                                    % Space after theorem head, ' ', or \newline
+  {}%                                     % Theorem head spec (can be left empty, meaning `normal')
+
+\theoremstyle{framedplain}
+\newtheorem{fthm}{Theorem}
+\newtheorem{flem}[fthm]{Lemma}
+\newtheorem{fprop}[fthm]{Proposition}
+\newtheorem{fdef}{Definition}
+
+\theoremstyle{plain}
+%\newtheorem{thm}{Theorem}[subsection]
+%\newtheorem{cor}[thm]{Corollary}
+%\newtheorem{lem}[thm]{Lemma}
+%\newtheorem{prop}[thm]{Proposition}
+%\newtheorem{defn}{Definition}[subsection]
+
+\if@section
+\declaretheorem[numberwithin=section,name=Theorem,refname={theorem,theorems},Refname={Theorem,Theorems}]{thm}
+\declaretheorem[name=Definition,numberwithin=section,refname={definition,definitions},Refname={Definition,Definitions}]{defn}
+\else
+  \if@subsection
+  \declaretheorem[numberwithin=subsection,name=Theorem,refname={theorem,theorems},Refname={Theorem,Theorems}]{thm}
+  \declaretheorem[name=Definition,numberwithin=subsection,refname={definition,definitions},Refname={Definition,Definitions}]{defn}
+  \else
+  \declaretheorem[name=Theorem,refname={theorem,theorems},Refname={Theorem,Theorems}]{thm}
+  \declaretheorem[name=Definition,refname={definition,definitions},Refname={Definition,Definitions}]{defn}
+  \fi
+\fi
+\declaretheorem[name=Corollary,sibling=thm,refname={corollary,corollaries},Refname={Corollary,Corollaries}]{cor}
+\declaretheorem[sibling=thm,name=Lemma,refname={lemma,lemmas},Refname={Lemma,Lemmas}]{lem}
+\declaretheorem[sibling=thm,name=Proposition,refname={proposition,propositions},Refname={Proposition,Propositions}]{prop}
+%\theoremstyle{definition}
+
+\theoremstyle{remark}
+\newtheorem{rem}{Remark}[subsection]
+
+\if@beamer
+\newtheoremstyle{problem}%                % Name
+  {1pt}%                                     % Space above
+  {1pt}%                                     % Space below
+  {}%                             % Body font
+  {}%                                     % Indent amount
+  {\bfseries}%                            % Theorem head font
+  {.}%                                    % Punctuation after theorem head
+  { }%                                    % Space after theorem head, ' ', or \newline
+  {}%                                     % Theorem head spec (can be left empty, meaning `normal')
+
+\theoremstyle{problem}
+\newtheorem{problem}{Problem}
+\fi
+
+\newcommand{\floor}[1]{{\left\lfloor #1 \right\rfloor}}
+\newcommand{\bangle}[1]{{\left\langle #1 \right\rangle}}
+\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+\newcommand{\ceil}[1]{{\left\lceil #1 \right\rceil}}
+\newcommand{\cmod}[3]{#1 \equiv #2 \pmod{#3}}
+\newcommand{\vspan}{\mathop{\mathrm{span}}}
+\newcommand{\lcm}{\mathop{\mathrm{lcm}}}
+\newcommand{\tr}{\mathop{\mathrm{tr}}}
+\newcommand{\rank}{\mathop{\mathrm{rank}}}
+\newcommand{\nullity}{\mathop{\mathrm{nullity}}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% CS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% misc
+\renewcommand{\P}{\ensuremath{\mathsf{\mathbf{P}}}}
+\newcommand{\NP}{\ensuremath{\mathsf{\mathbf{NP}}}}
+\newcommand{\cNP}{\ensuremath{\mathsf{\mathbf{coNP}}}}
+
+%%% TIKZ -- pictures like automata, trees, etc
+\usepackage{pgf,tikz}
+\usepackage{rotating}
+% a few basic tikz libraries
+\usetikzlibrary{arrows,automata,shapes,snakes}
+
+%%% CODE
+\if@cormen
+\usepackage{clrscode} % Cormen Algorithms book code
+\else
+\usepackage{algorithmicx}
+  \if@section
+  \usepackage[section]{algorithm}
+  \else
+    \if@subsection
+    \usepackage[subsection]{algorithm}
+    \else
+    \usepackage{algorithm}
+    \fi
+  \fi
+\usepackage[noend]{algpseudocode}
+\fi
+
+\if@cse
+\usepackage{listings} % All code (looks nicer...)
+\usepackage{xcolor,color}
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{dkpurple}{rgb}{0.4,0.1,0.4}
+\definecolor{blue}{rgb}{0.0,0.0,1.0}
+\definecolor{light-gray}{gray}{0.9}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\definecolor{green}{RGB}{0,127,0}
+
+\lstdefinestyle{java}{ language=Java }
+\lstdefinestyle{c}{ language=C }
+\lstdefinestyle{python}{ language=Python }
+\lstdefinestyle{makefile}{ language=[gnu]make }
+\lstdefinestyle{bash}
+{
+  language=bash,
+  backgroundcolor=\color{light-gray}
+}
+
+\lstset
+{
+  numbers=left, 
+  firstnumber=1,
+  stepnumber=1,
+  numberfirstline,
+  numberstyle=\scriptsize, %\sffamily
+  frame=single,
+  frameround=tttt,
+  tabsize=4,
+  basicstyle=\small\ttfamily,
+  keywordstyle=\bfseries\color{dkpurple},
+  stringstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  showstringspaces=false,
+  aboveskip=0.5em,
+  belowskip=0em,
+  captionpos=b,
+  xleftmargin=1.5em,
+  xrightmargin=0.5em
+}
+
+\lstdefinestyle{npython}{
+  language=Python,
+  basicstyle=\small\ttfamily,
+  frame=single,
+  prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\rhookswarrow}},
+  postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\rcurvearrowse\space}}
+  breaklines=true,
+  breakatwhitespace=true,
+  numbers=left,
+  numberstyle=\scriptsize,
+  morekeywords={True,False},
+  identifierstyle=\color{black},
+  basicstyle=\small\ttfamily,
+  keywordstyle=\color{blue},
+  stringstyle=\color{Maroon},
+  commentstyle=\color{green},
+  showstringspaces=false,
+  captionpos=b,
+}
+% graceful line breaks within listings and numbered lines
+% http://www.bollchen.de/blog/2011/04/good-looking-line-breaks-with-the-listings-package/
+% http://www.bollchen.de/blog/wp-content/uploads/2011/04/linebreak.pdf
+
+\usepackage{MnSymbol}
+\lstset{prebreak=\raisebox{0ex}[0ex][0ex]
+        {\ensuremath{\rhookswarrow}}}
+\lstset{postbreak=\raisebox{0ex}[0ex][0ex]
+        {\ensuremath{\rcurvearrowse\space}}}
+\lstset{breaklines=true, breakatwhitespace=true}
+\fi
+%%% BIBLIOGRAPHY
+\usepackage{cite}
+
+\endinput

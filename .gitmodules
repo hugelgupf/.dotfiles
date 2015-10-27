@@ -1,0 +1,6 @@
+[submodule "tag-shell/oh-my-zsh"]
+	path = tag-shell/oh-my-zsh
+	url = git@github.com:robbyrussell/oh-my-zsh.git
+[submodule "tag-shell/zsh_custom/plugins/zsh-syntax-highlighting"]
+	path = tag-shell/zsh_custom/plugins/zsh-syntax-highlighting
+	url = git@github.com:zsh-users/zsh-syntax-highlighting.git

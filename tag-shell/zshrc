@@ -1,0 +1,59 @@
+# Path to your oh-my-zsh configuration.
+ZSH=$HOME/.oh-my-zsh
+
+# amuse dieter norm robbyrussell
+ZSH_CUSTOM="$HOME/.zsh_custom"
+ZSH_THEME="hugelgupf"
+
+DISABLE_AUTO_UPDATE="true"
+HIST_STAMPS="yyyy-mm-dd"
+
+# git theme functionality
+export GIT_PS1_SHOWDIRTYSTATE=1
+export GIT_PS1_SHOWSTASHSTATE=1
+export GIT_PS1_SHOWUNTRACKEDFILES=1
+
+export EDITOR='vim'
+export GOPATH=$HOME/go
+export SSH_KEY_PATH="~/.ssh/rsa_id"
+export PATH=~/.local/bin:$PATH
+
+plugins=(git git-extra gitfast zsh-syntax-highlighting)
+
+setopt rm_star_silent
+setopt nullglob
+source $ZSH/oh-my-zsh.sh
+
+autoload -U compinit && compinit
+autoload -U colors && colors
+
+source /etc/bash_completion.d/g4d
+source /etc/bash_completion.d/p4
+source /etc/bash_completion.d/blaze
+source /etc/bash_completion.d/mosh
+
+zstyle ':completion:*' menu select=20
+setopt menu_complete
+setopt extended_glob
+setopt correct
+setopt correctall
+setopt auto_cd
+setopt complete_in_word
+
+setopt append_history
+setopt extended_history
+setopt inc_append_history
+setopt share_history
+
+bindkey "^A" beginning-of-line
+bindkey "^L" end-of-line
+bindkey "^K" kill-whole-line
+
+if [[ -e /usr/bin/virtualenvwrapper.sh ]]
+then
+  export WORKON_HOME=~/.virtualenvs
+  source /usr/bin/virtualenvwrapper.sh
+fi
+
+source $HOME/.aliases
+source $HOME/.zshrc.aliases

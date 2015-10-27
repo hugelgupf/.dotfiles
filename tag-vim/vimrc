@@ -1,0 +1,105 @@
+" sorry, vi!
+set nocompatible
+
+if filereadable("/usr/share/vim/google/google.vim")
+  source /usr/share/vim/google/google.vim
+endif
+if filereadable("/usr/share/vim/google/glug/bootstrap.vim")
+  source /usr/share/vim/google/glug/bootstrap.vim
+endif
+
+" set line numbers + relative line numbers
+set relativenumber
+set number
+
+" use 256 color terminal
+set t_Co=256
+
+" Unicode erryday
+scriptencoding utf-8
+set encoding=utf-8
+set fileencoding=utf-8
+
+" add Vundle plugin manager to vim runtimepath
+set rtp+=~/.vim/bundle/Vundle.vim
+
+" call Vundle, get plugins
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'scrooloose/syntastic'
+Plugin 'bling/vim-airline'
+Plugin 'edkolev/tmuxline.vim'
+
+call vundle#end()
+filetype plugin indent on
+
+" custom color scheme
+colors transparent
+
+if filereadable("~/.vimrc.google")
+  source ~/.vimrc.google
+endif
+
+" Show vim airline with a certain theme
+let g:airline_theme='powerlineish'
+" Always show status line
+set laststatus=2
+
+" Configure syntastic. Add F5 for running linter
+let g:syntastic_always_populate_loc_list = 1
+let g:syntatsic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+map <F5> :SyntasticCheck<CR>
+
+" Syntax Highlighting
+syntax on
+
+" Highlight searches and search as you type
+set hls
+set incsearch
+
+set ruler
+set cindent
+
+" LaTeX stuff
+let grepprg="grep -nH $*"
+let g:tex_flavor = "latex"
+let g:Tex_CompileRule_pdf = 'xelatex --interaction=nonstopmode -shell-escape $*'
+let g:Tex_DefaultTargetFormat = 'pdf'
+let g:Tex_MultipleCompileFormats = 'pdf'
+let g:Tex_GotoError=0
+let g:Tex_UseMakefile=0
+
+let g:Tex_IgnoredWarnings =
+  \"Underfull\n".
+  \"Overfull\n".
+  \"specifier changed to\n".
+  \"You have requested\n".
+  \"Missing number, treated as zero.\n".
+  \"There were undefined references\n".
+  \"Citation %.%# undefined\n".
+  \"Double space found.\n".
+  \"LaTeX Font Warning:"
+let g:Tex_IgnoreLevel = 9
+
+" keybindings for commenting
+map ,% :s/^/%/<CR>
+map ,# :s/^/#/<CR>
+map ," :s/^/"/<CR>
+map ,c :s/^\/\/\\|^--\\|^> \\|^[#"%!;]//<CR>
+
+" 2 soft space tabs
+set tabstop=2
+set expandtab
+set smarttab
+set list listchars=tab:»·,trail:·
+set shiftwidth=2
+
+" Columnwidth of 80; hard wrap lines; show red strip
+set textwidth=80
+set formatoptions+=t
+set cc=+1

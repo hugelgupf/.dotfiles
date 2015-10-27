@@ -1,0 +1,8 @@
+
+alias -s c=vim
+alias -s cc=vim
+alias -s h=vim
+alias -s cpp=vim
+alias -s py=vim
+alias tmux='tmux -2'
+alias ta='tmux attach'

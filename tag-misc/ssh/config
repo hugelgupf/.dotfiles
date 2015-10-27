@@ -1,0 +1,63 @@
+
+
+Host cs
+  Hostname cs.nmt.edu
+  User ckoch
+
+Host login
+#  PreferredAuthentications publickey,password,gssapi-with-mic,hostbased
+  Hostname login.cs.nmt.edu
+  User ckoch
+
+Host ada
+#  PreferredAuthentications publickey,password,gssapi-with-mic,hostbased
+  Hostname ada.cs.nmt.edu
+  User ckoch
+
+Host euler
+  Hostname euler.kochris.com
+  User ckoch
+
+Host paul
+  Hostname paul.kochris.com
+  User ckoch
+
+Host www
+  Hostname cs.nmt.edu
+  User ckoch
+
+Host gibson
+  Hostname gibson.cs.nmt.edu
+  User ckoch
+
+Host sysnf
+  Hostname niedersfeld.cs.nmt.edu
+  User sysadmin
+
+Host niedersfeld
+  Hostname niedersfeld.cs.nmt.edu
+  User ckoch
+
+Host nf
+  Hostname niedersfeld.cs.nmt.edu
+  User ckoch
+
+Host tcc
+  Hostname rainbow.nmt.edu
+  User ckoch
+
+Host git.cs.nmt.edu
+  ForwardAgent yes
+
+Host mau
+  Hostname mauritius-gymnasium.de
+  User chris
+
+Host proxy.mau
+  Hostname maugbueren.homedns.org
+  User root
+
+Host github
+  Hostname github.com
+  User git
+  PreferredAuthentications publickey
