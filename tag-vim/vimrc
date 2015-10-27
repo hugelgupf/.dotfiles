@@ -65,6 +65,8 @@ set incsearch
 
 " Turn of the damn bells
 set noerrorbells
+set vb
+set t_vb=
 
 set ruler
 
