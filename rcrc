@@ -1,4 +1,4 @@
-EXCLUDES="*~ Readme.md *.swp"
 TAGS="git latex misc shell vim gui tmux"
 SYMLINK_DIRS="emacs.d vim oh-my-zsh texmf zsh_custom"
 UNDOTTED="texmf"
+EXCLUDES="*~ Readme.md *.swp"
