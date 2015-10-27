@@ -24,11 +24,12 @@ set fileencoding=utf-8
 set rtp+=~/.vim/bundle/Vundle.vim
 
 " call Vundle, get plugins
+" use vim +PluginInstall +qall to actually install these
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'octol/vim-cpp-enhanced-highlight'
-Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
 Plugin 'bling/vim-airline'
 Plugin 'edkolev/tmuxline.vim'
@@ -39,8 +40,8 @@ filetype plugin indent on
 " custom color scheme
 colors transparent
 
-if filereadable("~/.vimrc.google")
-  source ~/.vimrc.google
+if filereadable($HOME."/.vimrc.google")
+  source ${HOME}/.vimrc.google
 endif
 
 " Show vim airline with a certain theme
@@ -62,8 +63,38 @@ syntax on
 set hls
 set incsearch
 
+" Turn of the damn bells
+set noerrorbells
+
 set ruler
+
+" Such indent
+set autoindent
+set smartindent
 set cindent
+
+" Case sucks
+set ignorecase
+set smartcase
+
+" Highlight current line
+set cursorline
+
+" Cursor moves with 7 lines
+set so=7
+
+" Enable using the mouse
+set mouse=a
+
+" regex like grep
+set magic
+
+" Performance config
+set lazyredraw
+
+" Command line completion
+set wildmenu
+set wildmode=longest:full,full
 
 " LaTeX stuff
 let grepprg="grep -nH $*"
@@ -94,12 +125,14 @@ map ,c :s/^\/\/\\|^--\\|^> \\|^[#"%!;]//<CR>
 
 " 2 soft space tabs
 set tabstop=2
+set shiftwidth=2
 set expandtab
 set smarttab
+" Show spaces and tabs when useful
 set list listchars=tab:»·,trail:·
-set shiftwidth=2
 
 " Columnwidth of 80; hard wrap lines; show red strip
 set textwidth=80
 set formatoptions+=t
 set cc=+1
+set wrap

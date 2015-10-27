@@ -1,2 +1,0 @@
-Glug syntastic-google checkers=`{'python': 'gpylint'}`
-let g:syntastic_mode_map = {'mode': 'passive'}
