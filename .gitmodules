@@ -4,3 +4,6 @@
 [submodule "tag-shell/zsh_custom/plugins/zsh-syntax-highlighting"]
 	path = tag-shell/zsh_custom/plugins/zsh-syntax-highlighting
 	url = git@github.com:zsh-users/zsh-syntax-highlighting.git
+[submodule "tag-vim/vim/bundle/Vundle.vim"]
+	path = tag-vim/vim/bundle/Vundle.vim
+	url = git@github.com:VundleVim/Vundle.vim
