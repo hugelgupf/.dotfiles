@@ -16,14 +16,20 @@ export GIT_PS1_SHOWUNTRACKEDFILES=1
 export EDITOR='vim'
 export GOPATH=$HOME/go
 export SSH_KEY_PATH="~/.ssh/rsa_id"
+
+# Add .local/bin to my path
 export PATH=~/.local/bin:$PATH
 
+# oh-my-zsh plugins. zsh-syntax-highlighting HAS to be last
 plugins=(git git-extra gitfast zsh-syntax-highlighting)
 
 setopt rm_star_silent
 setopt nullglob
+
+# actually source oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
+# set up tab completions
 autoload -U compinit && compinit
 autoload -U colors && colors
 
@@ -46,7 +52,7 @@ setopt inc_append_history
 setopt share_history
 
 bindkey "^A" beginning-of-line
-bindkey "^L" end-of-line
+# bindkey "^L" end-of-line
 bindkey "^K" kill-whole-line
 
 if [[ -e /usr/bin/virtualenvwrapper.sh ]]

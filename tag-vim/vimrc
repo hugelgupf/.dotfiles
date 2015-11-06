@@ -37,6 +37,9 @@ Plugin 'edkolev/tmuxline.vim'
 call vundle#end()
 filetype plugin indent on
 
+" Make , the prefix key instead of \
+let mapleader = ","
+
 " custom color scheme
 colors transparent
 
@@ -54,7 +57,9 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntatsic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-map <F5> :SyntasticCheck<CR>
+
+" map ,l for linting
+map <Leader>l :SyntasticCheck<CR>
 
 " Syntax Highlighting
 syntax on
@@ -119,11 +124,13 @@ let g:Tex_IgnoredWarnings =
   \"LaTeX Font Warning:"
 let g:Tex_IgnoreLevel = 9
 
+
 " keybindings for commenting
-map ,% :s/^/%/<CR>
-map ,# :s/^/#/<CR>
-map ," :s/^/"/<CR>
-map ,c :s/^\/\/\\|^--\\|^> \\|^[#"%!;]//<CR>
+map <Leader>% :s/^/%/<CR>:nohl<CR>
+map <Leader># :s/^/#/<CR>:nohl<CR>
+map <Leader>" :s/^/"/<CR>:nohl<CR>
+map <Leader>c :s/^\/\/\\|^--\\|^> \\|^[#"%!;]//<CR>:nohl<CR>
+map <Leader>h :nohl<CR>
 
 " 2 soft space tabs
 set tabstop=2
