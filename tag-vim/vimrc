@@ -80,7 +80,7 @@ set ignorecase
 set smartcase
 
 " Highlight current line
-set cursorline
+" set cursorline
 
 " Cursor moves with 7 lines
 set so=7
