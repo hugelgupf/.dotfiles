@@ -38,4 +38,6 @@ This sets up basic configs for:
 #### Notes
 
 To use vim-airline and tmuxline.vim properly, you need a patched font from
-[here](https://github.com/powerline/fonts).
+[here](https://github.com/powerline/fonts). There is also a Monaco (OS X
+standard) patched font available
+[here](https://gist.github.com/rogual/6824790627960fc93077#file-monaco-for-powerline-otf).
