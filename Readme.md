@@ -18,7 +18,6 @@ Please note this repository has submodules. To clone it all:
 ```
 
 ### Tools
----------
 
 This sets up basic configs for:
 
