@@ -5,6 +5,7 @@ typeset -A host_repr
 # translate hostnames into shortened, colorcoded strings
 host_repr=(
   'login' "%{$fg_bold[blue]%}login"
+  'ada' "%{$fg_bold[blue]%}ada"
   'rainbow' "%{$fg_bold[blue]%}rainbow"
   'edison' "%{$fg_bold[blue]%}edison"
   'tesla' "%{$fg_bold[blue]%}tesla"
