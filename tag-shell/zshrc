@@ -14,11 +14,11 @@ export GIT_PS1_SHOWSTASHSTATE=1
 export GIT_PS1_SHOWUNTRACKEDFILES=1
 
 export EDITOR='vim'
-export GOPATH=$HOME/go
+export GOPATH=$HOME/gowork
 export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # Add .local/bin to my path
-export PATH=~/.local/bin:$PATH
+export PATH=~/.local/bin:$GOPATH/bin:$PATH
 
 # oh-my-zsh plugins. zsh-syntax-highlighting HAS to be last
 plugins=(git git-extra gitfast zsh-syntax-highlighting)
