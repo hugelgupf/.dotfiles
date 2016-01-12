@@ -39,6 +39,7 @@ then
 fi
 
 zstyle ':completion:*' menu select=20
+zstyle ':completion:*' users
 setopt menu_complete
 setopt extended_glob
 setopt correct

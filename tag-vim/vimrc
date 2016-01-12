@@ -131,6 +131,7 @@ map <Leader># :s/^/#/<CR>:nohl<CR>
 map <Leader>" :s/^/"/<CR>:nohl<CR>
 map <Leader>c :s/^\/\/\\|^--\\|^> \\|^[#"%!;]//<CR>:nohl<CR>
 map <Leader>h :nohl<CR>
+imap ;; <ESC>
 
 " 2 soft space tabs
 set tabstop=2
