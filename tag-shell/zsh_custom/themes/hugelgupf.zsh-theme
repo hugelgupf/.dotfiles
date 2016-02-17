@@ -37,7 +37,7 @@ fi
 local prompt_symbol="%(?.%F{green}.%F{red})::%f"
 
 # Compacted $PWD
-local pwd="%{$fg_bold[blue]%}%1~%{$reset_color%}"
+local pwd="%{$fg_bold[blue]%}%2~%{$reset_color%}"
 
 local branch='%F{yellow}$(__git_ps1 " [%s]")%f'
 PROMPT="${user_at_host} ${prompt_symbol} "

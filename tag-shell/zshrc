@@ -17,8 +17,9 @@ export EDITOR='vim'
 export GOPATH=$HOME/gowork
 export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-# Add .local/bin to my path
-export PATH=~/.local/bin:$GOPATH/bin:$PATH
+# Add .local/bin
+export PATH=$HOME/.local/bin:$GOPATH/bin:$PATH
+export TERM=xterm-256color
 
 # oh-my-zsh plugins. zsh-syntax-highlighting HAS to be last
 plugins=(git git-extra gitfast zsh-syntax-highlighting)
@@ -55,6 +56,7 @@ setopt share_history
 bindkey "^A" beginning-of-line
 # bindkey "^L" end-of-line
 bindkey "^K" kill-whole-line
+bindkey "^G" git-fdiff
 
 if [[ -e /usr/bin/virtualenvwrapper.sh ]]
 then
@@ -73,3 +75,9 @@ then
 fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+if [ -z $SSH_AGENT_PID ] && [ -z $SSH_TTY ];
+then
+  eval `ssh-agent -s` > /dev/null
+  ssh-add -l > /dev/null
+fi
