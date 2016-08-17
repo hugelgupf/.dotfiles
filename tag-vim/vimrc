@@ -33,12 +33,13 @@ Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'scrooloose/syntastic'
 Plugin 'bling/vim-airline'
 Plugin 'edkolev/tmuxline.vim'
-Plugin 'LucHermitte/lh-vim-lib'
-Plugin 'LucHermitte/local_vimrc'
 Plugin 'vivien/vim-linux-coding-style'
-Plugin 'junegunn/goyo.vim'
-Plugin 'junegunn/limelight.vim'
-Plugin 'junegunn/seoul256.vim'
+Plugin 'junegunn/goyo.vim' " distraction free
+Plugin 'junegunn/limelight.vim' " distraction free - limelight
+Plugin 'junegunn/seoul256.vim' " color scheme
+Plugin 'airblade/vim-gitgutter'
+Plugin 'LucHermitte/lh-vim-lib' " dependency of local_vimrc
+Plugin 'LucHermitte/local_vimrc'
 
 call vundle#end()
 filetype plugin indent on
@@ -132,7 +133,6 @@ let g:Tex_IgnoredWarnings =
   \"LaTeX Font Warning:"
 let g:Tex_IgnoreLevel = 9
 
-
 " keybindings for commenting
 map <Leader>% :s/^/%/<CR>:nohl<CR>
 map <Leader># :s/^/#/<CR>:nohl<CR>
@@ -144,8 +144,19 @@ map <Leader>h :nohl<CR>
 imap ;; <ESC>
 map <Leader>l :Limelight!!<CR>
 map <Leader>g :Goyo<CR>
-autocmd! User GoyoEnter Limelight
-autocmd! User GoyoLeave Limelight!
+
+function! s:goyo_enter()
+  Limelight
+  set linebreak
+endfunction
+
+function! s:goyo_leave()
+  Limelight!
+  set nolinebreak
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 " 2 soft space tabs
 set tabstop=2

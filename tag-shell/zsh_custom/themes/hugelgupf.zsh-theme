@@ -10,7 +10,7 @@ host_repr=(
   'edison' "%{$fg_bold[blue]%}edison"
   'tesla' "%{$fg_bold[blue]%}tesla"
   'winterberg' "%{$fg_bold[blue]%}winterberg"
-  'mort.mtv.corp.google.com' "%{$fg_bold[cyan]%}mort"
+  'mort.mtv.corp.google.com' "%F{116}mort"
   )
 
 MY_USERS=('chrisko' 'ckoch' 'chris')
@@ -34,12 +34,15 @@ else
   local user_at_host="${user}%F{green} at %f${host}"
 fi
 
-local prompt_symbol="%(?.%F{green}.%F{red})::%f"
+# 179 red
+local prompt_symbol="%(?.%F{green}.%F{179})::%f"
 
 # Compacted $PWD
-local pwd="%{$fg_bold[blue]%}%2~%{$reset_color%}"
+# local pwd="%{$fg_bold[179]%}%2~%{$reset_color%}"
+local pwd="%F{116}%2~%{$reset_color%}"
 
-local branch='%F{yellow}$(__git_ps1 " [%s]")%f'
+# yellow 222
+local branch='%F{222}$(__git_ps1 " [%s]")%f'
 PROMPT="${user_at_host} ${prompt_symbol} "
 RPROMPT="${pwd}${branch}"
 
