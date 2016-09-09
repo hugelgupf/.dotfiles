@@ -34,6 +34,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'bling/vim-airline'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'vivien/vim-linux-coding-style'
+Plugin 'hugelgupf/vim-akaros-coding-style'
 Plugin 'junegunn/goyo.vim' " distraction free
 Plugin 'junegunn/limelight.vim' " distraction free - limelight
 Plugin 'junegunn/seoul256.vim' " color scheme
@@ -44,7 +45,7 @@ Plugin 'LucHermitte/local_vimrc'
 call vundle#end()
 filetype plugin indent on
 
-let g:linuxsty_patterns = [ "/akaros" ]
+let g:akarossty_patterns = [ "/akaros" ]
 
 " Make , the prefix key instead of \
 let mapleader = ","
