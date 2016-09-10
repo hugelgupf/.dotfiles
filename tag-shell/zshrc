@@ -1,83 +1,31 @@
-# Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
+source ~/.zgen/zgen.zsh
 
-# amuse dieter norm robbyrussell
-ZSH_CUSTOM="$HOME/.zsh_custom"
-ZSH_THEME="hugelgupf"
+if ! zgen saved; then
+  PLUGS=$HOME/.zsh_custom
 
-DISABLE_AUTO_UPDATE="true"
-HIST_STAMPS="yyyy-mm-dd"
+  zgen oh-my-zsh
+  zgen loadall <<EOF
+    $ZGEN_OH_MY_ZSH_REPO plugins/web-search
+    zsh-users/zsh-syntax-highlighting
+    zsh-users/zsh-completions
+    $ZGEN_OH_MY_ZSH_REPO plugins/git
+    $ZGEN_OH_MY_ZSH_REPO plugins/git-extras
+    $ZGEN_OH_MY_ZSH_REPO plugins/gitfast
 
-# git theme functionality
-export GIT_PS1_SHOWDIRTYSTATE=1
-export GIT_PS1_SHOWSTASHSTATE=1
-export GIT_PS1_SHOWUNTRACKEDFILES=1
+    $PLUGS/plugins/go
+    $PLUGS/plugins/fzf
+    $PLUGS/plugins/defaults
 
-export EDITOR='vim'
-export GOPATH=$HOME/gowork
-export SSH_KEY_PATH="~/.ssh/rsa_id"
+    $PLUGS/themes/hugelgupf
+EOF
 
-# Add .local/bin
-export PATH=$HOME/.local/bin:$GOPATH/bin:$PATH
-export TERM=xterm-256color
+  if [ -z $PLUGS/plugins/google ]; then
+    zgen load $PLUGS/plugins/google
+  fi
 
-# oh-my-zsh plugins. zsh-syntax-highlighting HAS to be last
-plugins=(git git-extra gitfast zsh-syntax-highlighting)
+  if [ -z $PLUGS/plugins/akaros ]; then
+    zgen load $PLUGS/plugins/akaros
+  fi
 
-setopt rm_star_silent
-setopt nullglob
-
-# actually source oh-my-zsh
-source $ZSH/oh-my-zsh.sh
-
-# set up tab completions
-autoload -U compinit && compinit
-autoload -U colors && colors
-
-if [[ -e $HOME/.zshrc.local ]]
-then
-  source $HOME/.zshrc.local
-fi
-
-zstyle ':completion:*' menu select=20
-zstyle ':completion:*' users
-setopt menu_complete
-setopt extended_glob
-setopt correct
-setopt correctall
-setopt auto_cd
-setopt complete_in_word
-
-setopt append_history
-setopt extended_history
-setopt inc_append_history
-setopt share_history
-
-bindkey "^A" beginning-of-line
-# bindkey "^L" end-of-line
-bindkey "^K" kill-whole-line
-bindkey "^G" git-fdiff
-
-if [[ -e /usr/bin/virtualenvwrapper.sh ]]
-then
-  export WORKON_HOME=~/.virtualenvs
-  source /usr/bin/virtualenvwrapper.sh
-fi
-
-if [[ -e $HOME/.aliases ]]
-then
-  source $HOME/.aliases
-fi
-
-if [[ -e $HOME/.zshrc.aliases ]]
-then
-  source $HOME/.zshrc.aliases
-fi
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-if [ -z $SSH_AGENT_PID ] && [ -z $SSH_TTY ];
-then
-  eval `ssh-agent -s` > /dev/null
-  ssh-add -l > /dev/null
+  zgen save
 fi

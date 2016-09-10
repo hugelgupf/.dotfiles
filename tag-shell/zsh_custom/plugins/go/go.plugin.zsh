@@ -1,0 +1,2 @@
+GOPATH="$HOME/gowork"
+PATH="$PATH:$GOPATH/bin"

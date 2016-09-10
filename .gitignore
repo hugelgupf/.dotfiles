@@ -1,5 +1,6 @@
 # -*- mode: gitignore; -*-
 tag-vim/vim/bundle/*
+tag-vim/vim/plugged/*
 
 # Standard gitignore for most projects
 # taken from https://github.com/github/gitignore

@@ -1,18 +1,13 @@
-
 # laptop only
 alias battery="upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep -A1 time"
+
 # pastebin
 alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
 
 alias keys="setxkbmap -layout"
 alias keysde="setxkbmap -layout de"
 alias keysen="setxkbmap -layout en_US"
-alias ls="ls -h --color=auto"
 alias ema="emacs -nw"
 
-alias tmux="tmux -2"
-alias tn="tmux new -s"
-alias ta="tmux attach -t"
-alias tl="tmux list-sessions"
-
+alias ls="ls -h --color=auto"
 alias irssi="TERM=screen-256color irssi"

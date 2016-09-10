@@ -20,31 +20,40 @@ scriptencoding utf-8
 set encoding=utf-8
 set fileencoding=utf-8
 
-" add Vundle plugin manager to vim runtimepath
-set rtp+=~/.vim/bundle/Vundle.vim
+call plug#begin('~/.vim/plugged')
 
-" call Vundle, get plugins
-" use vim +PluginInstall +qall to actually install these
-call vundle#begin()
+" Plug 'octol/vim-cpp-enhanced-highlight'
+" Plug 'Valloric/YouCompleteMe'
+Plug 'scrooloose/syntastic'
 
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'octol/vim-cpp-enhanced-highlight'
-" Plugin 'Valloric/YouCompleteMe'
-Plugin 'scrooloose/syntastic'
-Plugin 'bling/vim-airline'
-Plugin 'edkolev/tmuxline.vim'
-Plugin 'vivien/vim-linux-coding-style'
-Plugin 'hugelgupf/vim-akaros-coding-style'
-Plugin 'junegunn/goyo.vim' " distraction free
-Plugin 'junegunn/limelight.vim' " distraction free - limelight
-Plugin 'junegunn/seoul256.vim' " color scheme
-Plugin 'airblade/vim-gitgutter'
-Plugin 'LucHermitte/lh-vim-lib' " dependency of local_vimrc
-Plugin 'LucHermitte/local_vimrc'
+" airline, themes, and ability to export theme to tmux
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'edkolev/tmuxline.vim'
 
-call vundle#end()
-filetype plugin indent on
+Plug 'vivien/vim-linux-coding-style'
 
+" Akaros (Mod of Linux coding style)
+Plug 'hugelgupf/vim-akaros-coding-style'
+
+" distraction free
+Plug 'junegunn/goyo.vim'
+
+" distraction free - limelight
+Plug 'junegunn/limelight.vim'
+
+" color scheme
+Plug 'junegunn/seoul256.vim'
+
+" vim git gutter
+Plug 'airblade/vim-gitgutter'
+Plug 'LucHermitte/lh-vim-lib' | Plug 'LucHermitte/local_vimrc'
+
+Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
+
+call plug#end()
+
+" Akaros style in akaros directory.
 let g:akarossty_patterns = [ "/akaros" ]
 
 " Make , the prefix key instead of \
@@ -142,10 +151,14 @@ map <Leader>c :s/^\/\/\\|^--\\|^> \\|^[#"%!;]//<CR>:nohl<CR>
 
 " other keybindings
 map <Leader>h :nohl<CR>
+
+" use ;; to be able to exit insert mode.
 imap ;; <ESC>
-map <Leader>l :Limelight!!<CR>
+
+map <Leader>ll :Limelight!!<CR>
 map <Leader>g :Goyo<CR>
 
+" Make limelight mandatory with goyo.
 function! s:goyo_enter()
   Limelight
   set linebreak
@@ -164,6 +177,7 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 set smarttab
+
 " Show spaces and tabs when useful
 set list listchars=tab:»·,trail:·
 
@@ -173,4 +187,5 @@ set formatoptions+=t
 set cc=+1
 set wrap
 
+" Use system clipboard
 set clipboard=unnamed
