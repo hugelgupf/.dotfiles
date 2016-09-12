@@ -1,6 +1,3 @@
-[submodule "tag-vim/vim/bundle/Vundle.vim"]
-	path = tag-vim/vim/bundle/Vundle.vim
-	url = git@github.com:VundleVim/Vundle.vim
 [submodule "tag-shell/zgen"]
 	path = tag-shell/zgen
 	url = https://github.com/tarjoilija/zgen
