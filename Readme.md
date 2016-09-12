@@ -22,18 +22,20 @@ Please note this repository has submodules. To clone it all:
 This sets up basic configs for:
 
 * vim
-  * Plugin manager: [Vundle](https://github.com/VundleVim/Vundle.vim).
+  * Plugin manager: [vim-plug](https://github.com/junegunn/vim-plug).
   * Status line: [vim-airline](https://github.com/bling/vim-airline).
 * zsh
-  * Plugin and theme manager: [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh).
+  * Plugin manager: [zgen](https://github.com/tarjoilija/zgen).
 * tmux
   * Status line: [tmuxline.vim](https://github.com/edkolev/tmuxline.vim).
     Please note this is a **vim** plugin that can generate a tmux style from the
     vim-airline theme you have.
 * git
   * Most of the gitignore defaults pulled from [gitignore.io](https://gitignore.io).
-* Google-specific things (vim, zsh)
 * ssh (shortcuts)
+
+If you work at Google, there are some Google-specific things I only have on an
+internal branch. Send me an email if you want that stuff.
 
 #### Notes
 
