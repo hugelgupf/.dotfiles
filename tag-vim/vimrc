@@ -50,6 +50,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'LucHermitte/lh-vim-lib' | Plug 'LucHermitte/local_vimrc'
 
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
+Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
@@ -71,15 +72,6 @@ endif
 let g:airline_theme='zenburn'
 " Always show status line
 set laststatus=2
-
-" Configure syntastic. Add F5 for running linter
-let g:syntastic_always_populate_loc_list = 1
-let g:syntatsic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-" map ,l for linting
-map <Leader>l :SyntasticCheck<CR>
 
 " Syntax Highlighting
 syntax on
@@ -148,6 +140,19 @@ map <Leader>% :s/^/%/<CR>:nohl<CR>
 map <Leader># :s/^/#/<CR>:nohl<CR>
 map <Leader>" :s/^/"/<CR>:nohl<CR>
 map <Leader>c :s/^\/\/\\|^--\\|^> \\|^[#"%!;]//<CR>:nohl<CR>
+
+" Configure syntastic. Add ,l for running linter
+let g:syntastic_always_populate_loc_list = 1
+let g:syntatsic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" map ,l for linting
+map <Leader>l :SyntasticCheck<CR>
+
+map <Leader>k :Files<CR>
+inoremap <C-T> <C-O>:Files<CR>
+noremap <C-T> :Files<CR>
 
 " other keybindings
 map <Leader>h :nohl<CR>

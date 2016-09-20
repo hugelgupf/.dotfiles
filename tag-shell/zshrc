@@ -5,12 +5,13 @@ if ! zgen saved; then
 
   zgen oh-my-zsh
   zgen loadall <<EOF
-    $ZGEN_OH_MY_ZSH_REPO plugins/web-search
-    zsh-users/zsh-syntax-highlighting
-    zsh-users/zsh-completions
     $ZGEN_OH_MY_ZSH_REPO plugins/git
     $ZGEN_OH_MY_ZSH_REPO plugins/git-extras
     $ZGEN_OH_MY_ZSH_REPO plugins/gitfast
+    $ZGEN_OH_MY_ZSH_REPO plugins/web-search
+    $ZGEN_OH_MY_ZSH_REPO plugins/safe-paste
+    zsh-users/zsh-syntax-highlighting
+    zsh-users/zsh-completions
 
     $PLUGS/plugins/go
     $PLUGS/plugins/fzf
@@ -19,11 +20,11 @@ if ! zgen saved; then
     $PLUGS/themes/hugelgupf
 EOF
 
-  if [ -z $PLUGS/plugins/google ]; then
+  if [ -d $PLUGS/plugins/google ]; then
     zgen load $PLUGS/plugins/google
   fi
 
-  if [ -z $PLUGS/plugins/akaros ]; then
+  if [ -d $PLUGS/plugins/akaros ]; then
     zgen load $PLUGS/plugins/akaros
   fi
 

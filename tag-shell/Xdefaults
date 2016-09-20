@@ -34,10 +34,10 @@ URxvt.keysym.C-Next:   \033[6;5~
 URxvt.keysym.C-Home:   \033[7;5~
 URxvt.keysym.C-End:    \033[8;5~
 
-URxvt.keysym.M-Up:     \033[1;3A
-URxvt.keysym.M-Down:   \033[1;3B
-URxvt.keysym.M-Right:  \033[1;3C
-URxvt.keysym.M-Left:   \033[1;3D
+!URxvt.keysym.M-Up:     \033[1;3A
+!URxvt.keysym.M-Down:   \033[1;3B
+!URxvt.keysym.M-Right:  \033[1;3C
+!URxvt.keysym.M-Left:   \033[1;3D
 
 URxvt.clipboard.autocopy: true
 !URxvt.clipboard.copycmd: xclip -i -selection clipboard
