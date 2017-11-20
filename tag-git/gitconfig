@@ -4,3 +4,10 @@
 
 [push]
   default = simple
+[alias]
+	l = log --pretty=format:'%C(yellow)%h%C(white) %an <%ae> %>|(80)%ai%Creset%n%C(bold)%w(0,4,4)%s%C(reset)%n%+b'
+	ll = log --stat
+	lg = log
+	lp = log -p
+[http]
+	cookiefile = /usr/local/google/home/chrisko/.gitcookies
