@@ -1,0 +1,10 @@
+[user]
+  name = Christopher Koch
+  email = c@chrisko.ch
+
+[push]
+  default = simple
+[http]
+	cookiefile = /home/chrisko/.gitcookies
+[core]
+	editor = vim

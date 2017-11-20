@@ -6,6 +6,7 @@ typeset -A host_repr
   host_repr=(
     'mort' "%F{116}mort"
     'hugelgupf' "%F{116}hugelgupf"
+    'osmanthus' "%F{116}osmanthus"
     )
 
   MY_USERS=('chrisko' 'ckoch' 'chris')

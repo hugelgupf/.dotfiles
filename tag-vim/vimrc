@@ -24,7 +24,7 @@ call plug#begin('~/.vim/plugged')
 
 " Plug 'octol/vim-cpp-enhanced-highlight'
 " Plug 'Valloric/YouCompleteMe'
-Plug 'scrooloose/syntastic'
+" Plug 'scrooloose/syntastic'
 
 " airline, themes, and ability to export theme to tmux
 Plug 'vim-airline/vim-airline'
@@ -51,6 +51,8 @@ Plug 'LucHermitte/lh-vim-lib' | Plug 'LucHermitte/local_vimrc'
 
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'junegunn/fzf.vim'
+
+Plug 'fatih/vim-go'
 
 call plug#end()
 
@@ -142,13 +144,13 @@ map <Leader>" :s/^/"/<CR>:nohl<CR>
 map <Leader>c :s/^\/\/\\|^--\\|^> \\|^[#"%!;]//<CR>:nohl<CR>
 
 " Configure syntastic. Add ,l for running linter
-let g:syntastic_always_populate_loc_list = 1
-let g:syntatsic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntatsic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
 
 " map ,l for linting
-map <Leader>l :SyntasticCheck<CR>
+"map <Leader>l :SyntasticCheck<CR>
 
 map <Leader>k :Files<CR>
 inoremap <C-T> <C-O>:Files<CR>
@@ -178,19 +180,19 @@ autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 " 2 soft space tabs
-set tabstop=2
-set shiftwidth=2
-set expandtab
-set smarttab
+"set tabstop=8
+"set shiftwidth=2
+"set expandtab
+"set smarttab
 
 " Show spaces and tabs when useful
-set list listchars=tab:»·,trail:·
+"set list listchars=tab:»·,trail:·
 
 " Columnwidth of 80; hard wrap lines; show red strip
-set textwidth=80
-set formatoptions+=t
-set cc=+1
-set wrap
+"set textwidth=80
+"set formatoptions+=t
+"set cc=+1
+"set wrap
 
 " Use system clipboard
 set clipboard=unnamed
