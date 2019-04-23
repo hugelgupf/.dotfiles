@@ -6,7 +6,7 @@ URxvt.italicFont: xft:Ubuntu Mono derivative Powerline:italic:pixelsize=15:antia
 URxvt.boldItalicFont: xft:Ubuntu Mono derivative Powerline:bold:italic:pixelsize=15:antialias=true:hinting=true
 URxvt.letterSpace: -1
 
-URxvt.perl-ext-common: default,matcher,clipboard
+URxvt.perl-ext-common: default,matcher,selection-to-clipboard
 URxvt.urlLauncher: google-chrome
 URxvt.matcher.button: 1
 
@@ -38,12 +38,6 @@ URxvt.keysym.C-End:    \033[8;5~
 !URxvt.keysym.M-Down:   \033[1;3B
 !URxvt.keysym.M-Right:  \033[1;3C
 !URxvt.keysym.M-Left:   \033[1;3D
-
-URxvt.clipboard.autocopy: true
-!URxvt.clipboard.copycmd: xclip -i -selection clipboard
-!URxvt.clipboard.pastecmd: xclip -o -selection clipboard
-URxvt.keysym.Control-Shift-c: perl:clipboard:copy
-URxvt.keysym.Control-Shift-v: perl:clipboard:paste
 
 URxvt.scrollstyle: plain
 ! seoul256 (dark) theme adapted for URxvt
