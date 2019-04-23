@@ -35,6 +35,7 @@ Plug 'vivien/vim-linux-coding-style'
 
 " Akaros (Mod of Linux coding style)
 Plug 'hugelgupf/vim-akaros-coding-style'
+Plug 'vivien/vim-linux-coding-style'
 
 " distraction free
 Plug 'junegunn/goyo.vim'
@@ -56,6 +57,7 @@ call plug#end()
 
 " Akaros style in akaros directory.
 let g:akarossty_patterns = [ "/akaros" ]
+let g:linuxsty_patterns = ["/prodkernel", "/linux"]
 
 " Make , the prefix key instead of \
 let mapleader = ","
