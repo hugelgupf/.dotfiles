@@ -6,9 +6,10 @@ typeset -A host_repr
   host_repr=(
     'mort' "%F{116}mort"
     'hugelgupf' "%F{116}hugelgupf"
+    'osmanthus' "%F{116}osmanthus"
     )
 
-  MY_USERS=('chrisko' 'ckoch' 'chris')
+  MY_USERS=('chrisko' 'ckoch' 'chris' 'c')
 
   # user part, color coded by privileges
   local user="%B%(!.%{$fg[red]%}.%{$fg[cyan]%})%n%b%{$reset_color%}"
