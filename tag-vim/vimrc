@@ -29,7 +29,7 @@ Plug 'scrooloose/syntastic'
 " airline, themes, and ability to export theme to tmux
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'edkolev/tmuxline.vim'
+"Plug 'edkolev/tmuxline.vim'
 
 Plug 'vivien/vim-linux-coding-style'
 
@@ -71,7 +71,9 @@ if filereadable($HOME."/.vimrc.google")
 endif
 
 " Show vim airline with a certain theme
-let g:airline_theme='zenburn'
+"let g:airline_theme='zenburn'
+let g:airline_theme='seoul256'
+let g:airline#extensions#tabline#enabled = 1
 " Always show status line
 set laststatus=2
 
@@ -92,6 +94,9 @@ set ruler
 " Such indent
 set autoindent
 set cindent
+
+" single space after period. we don't subscribe to double space bullshit.
+set nojoinspaces
 
 " Case sucks
 set ignorecase
