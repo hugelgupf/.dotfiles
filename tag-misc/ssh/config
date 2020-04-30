@@ -1,4 +1,4 @@
-Include ~/.ssh/google_config
+Include ~/.ssh/config.d/*
 
 Host login
 #  PreferredAuthentications publickey,password,gssapi-with-mic,hostbased
