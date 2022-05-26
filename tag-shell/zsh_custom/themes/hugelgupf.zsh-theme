@@ -39,5 +39,6 @@ typeset -A host_repr
   # yellow 222
   local branch='%F{222}$(__git_ps1 " [%s]")%f'
   PROMPT="${user_at_host} ${prompt_symbol} "
-  RPROMPT="${pwd}${branch}"
+#RPROMPT="${pwd}"
+RPROMPT="${pwd}${branch}"
 }

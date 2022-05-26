@@ -45,7 +45,7 @@ alias -s pdf=google-chrome
 
 alias ls="ls -h --color=auto"
 alias irssi="TERM=screen-256color irssi"
-alias stripcontrol="perl -pe 's/\x1b\[[^m]+m//g'"
+alias stripcontrol="sed 's/\[\?7l/m/g'"
 
 bindkey "^[[A" history-beginning-search-backward
 bindkey "^[[B" history-beginning-search-forward

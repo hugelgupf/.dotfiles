@@ -10,7 +10,9 @@
   lg = log
   lp = log -p
 [http]
-  cookiefile = /usr/local/google/home/chrisko/.gitcookies
+	cookiefile = /usr/local/google/home/chrisko/.gitcookies
 [sendemail]
   from = Chris Koch <chrisko@google.com>
   smtpserver = /usr/bin/sendgmr
+[color]
+	ui = auto

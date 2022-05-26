@@ -143,7 +143,7 @@ let g:Tex_IgnoredWarnings =
 let g:Tex_IgnoreLevel = 9
 
 " keybindings for commenting
-map <Leader>% :s/^/%/<CR>:nohl<CR>
+map <Leader>% :s/^/\/\//<CR>:nohl<CR>
 map <Leader># :s/^/#/<CR>:nohl<CR>
 map <Leader>" :s/^/"/<CR>:nohl<CR>
 map <Leader>c :s/^\/\/\\|^--\\|^> \\|^[#"%!;]//<CR>:nohl<CR>
