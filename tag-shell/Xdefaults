@@ -6,7 +6,7 @@ URxvt.italicFont: xft:Ubuntu Mono derivative Powerline:italic:pixelsize=15:antia
 URxvt.boldItalicFont: xft:Ubuntu Mono derivative Powerline:bold:italic:pixelsize=15:antialias=true:hinting=true
 URxvt.letterSpace: -1
 
-URxvt.perl-ext-common: default,matcher,selection-to-clipboard
+URxvt.perl-ext-common: default,matcher,selection-to-clipboard,resize-font
 URxvt.urlLauncher: google-chrome
 URxvt.matcher.button: 1
 
@@ -33,6 +33,10 @@ URxvt.keysym.C-Prior:  \033[5;5~
 URxvt.keysym.C-Next:   \033[6;5~
 URxvt.keysym.C-Home:   \033[7;5~
 URxvt.keysym.C-End:    \033[8;5~
+
+URxvt.keysym.C-minus: resize-font:smaller
+URxvt.keysym.C-plus:  resize-font:bigger
+URxvt.keysym.C-equal: resize-font:reset
 
 !URxvt.keysym.M-Up:     \033[1;3A
 !URxvt.keysym.M-Down:   \033[1;3B

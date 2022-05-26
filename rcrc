@@ -1,4 +1,4 @@
 TAGS="git latex misc shell vim gui tmux"
 SYMLINK_DIRS="emacs.d vim oh-my-zsh texmf zgen"
-UNDOTTED="texmf ssh/config.d"
+UNDOTTED="texmf ssh/config.d urxvt/ext"
 EXCLUDES="*~ Readme.md *.swp"
