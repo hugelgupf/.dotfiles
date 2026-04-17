@@ -46,7 +46,7 @@ Plug 'junegunn/limelight.vim'
 Plug 'junegunn/seoul256.vim'
 
 " vim git gutter
-Plug 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter', { 'branch': 'main' }
 Plug 'LucHermitte/lh-vim-lib' | Plug 'LucHermitte/local_vimrc'
 
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}

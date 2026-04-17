@@ -8,7 +8,6 @@ if ! zgen saved; then
     $ZGEN_OH_MY_ZSH_REPO plugins/git
     $ZGEN_OH_MY_ZSH_REPO plugins/git-extras
     $ZGEN_OH_MY_ZSH_REPO plugins/gitfast
-    $ZGEN_OH_MY_ZSH_REPO plugins/web-search
     $ZGEN_OH_MY_ZSH_REPO plugins/safe-paste
     zsh-users/zsh-syntax-highlighting
     zsh-users/zsh-completions
@@ -20,12 +19,8 @@ if ! zgen saved; then
     $PLUGS/themes/hugelgupf
 EOF
 
-  if [ -d $PLUGS/plugins/google ]; then
-    zgen load $PLUGS/plugins/google
-  fi
-
-  if [ -d $PLUGS/plugins/akaros ]; then
-    zgen load $PLUGS/plugins/akaros
+  if [ -d $PLUGS/plugins/snowflake ]; then
+    zgen load $PLUGS/plugins/snowflake
   fi
 
   zgen save
