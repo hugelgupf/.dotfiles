@@ -25,3 +25,5 @@ EOF
 
   zgen save
 fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
